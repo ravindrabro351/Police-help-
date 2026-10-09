@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MUKU EXPLOITS — IMEI Device Lookup Portal</title>
+<meta name="description" content="Real-time IMEI validator, device specs lookup, and phone intelligence suite by MUKU EXPLOITS."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ============ TOP STRIP ============ -->
+<div class="top-strip">
+  <div class="top-strip-inner">
+    <span>🇮🇳 A Digital India Initiative — Powered by MUKU EXPLOITS</span>
+    <span class="top-strip-right">
+      <a href="#">Help & Support</a>
+      <a href="#">Contact</a>
+      <span class="lang-switch">
+        <button class="lang-btn active">EN</button>
+        <button class="lang-btn">हि</button>
+      </span>
+    </span>
+  </div>
+</div>
+
+<!-- ============ MAIN HEADER ============ -->
+<header class="gov-header">
+  <div class="gov-header-inner">
+
+    <!-- Custom SVG Logo -->
+    <svg class="brand-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#1e40af"/>
+          <stop offset="100%" stop-color="#059669"/>
+        </linearGradient>
+      </defs>
+      <path d="M50 8 L88 22 L88 55 Q88 82 50 92 Q12 82 12 55 L12 22 Z"
+            fill="url(#logoGrad)" opacity="0.15"/>
+      <path d="M50 8 L88 22 L88 55 Q88 82 50 92 Q12 82 12 55 L12 22 Z"
+            stroke="url(#logoGrad)" stroke-width="3.5" fill="none"/>
+      <rect x="35" y="28" width="30" height="48" rx="5" fill="url(#logoGrad)"/>
+      <rect x="39" y="33" width="22" height="36" rx="2" fill="#fff" opacity="0.9"/>
+      <circle cx="50" cy="72" r="1.8" fill="#fff"/>
+      <path d="M43 50 L48 55 L58 44" stroke="#f97316" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="75" cy="30" r="6" fill="#f97316"/>
+      <circle cx="75" cy="30" r="2.5" fill="#fff"/>
+    </svg>
+
+    <div class="gov-title">
+      <div class="gov-subtitle">सुरक्षित भारत, सुरक्षित नागरिक</div>
+      <div class="gov-main-title">
+        <span class="brand-muku">MUKU</span><span class="brand-exploits">EXPLOITS</span>
+      </div>
+      <div class="gov-portal-name">
+        Lost & Stolen Mobile Assistance Portal
+        <span class="db-count-badge" id="dbCountBadge">📱 Loading...</span>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <div class="action-pill">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Track</span>
+      </div>
+      <div class="action-pill">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <span>Verify</span>
+      </div>
+      <div class="action-pill">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <span>Protect</span>
+      </div>
+      <div class="digital-india">
+        <div class="di-circle"></div>
+        <div class="di-text">
+          <b>Digital India</b>
+          <span>Power To Empower</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ NAV BAR ============ -->
+<nav class="main-nav">
+  <div class="main-nav-inner">
+    <a href="#" class="nav-item active">🏠 Home</a>
+    <a href="#about" class="nav-item">ℹ️ About</a>
+    <a href="#services" class="nav-item">🛠️ Services</a>
+    <a href="#help" class="nav-item">❓ Help & Support</a>
+    <a href="#contact" class="nav-item">📞 Contact</a>
+    <a href="#" class="nav-item nav-right">🔒 Public Portal</a>
+  </div>
+</nav>
+
+<!-- ============ HERO / SEARCH ============ -->
+<section class="hero-search">
+  <div class="hero-search-inner">
+    <div class="hero-left">
+      <div class="hero-icon">
+        <svg viewBox="0 0 60 60" fill="none">
+          <rect x="15" y="5" width="30" height="50" rx="6" stroke="#1e40af" stroke-width="3"/>
+          <circle cx="30" cy="48" r="2" fill="#1e40af"/>
+          <path d="M42 42 L52 52 M46 46 L50 42" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h1 class="hero-title">IMEI Device Lookup</h1>
+      <p class="hero-desc">Enter the IMEI number of your device to get detailed information</p>
+      <p class="hero-sub">This service helps you verify your device details and take necessary actions in case of loss or theft.</p>
+
+      <div class="search-box">
+        <div class="search-input-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none">
+            <rect x="6" y="2" width="12" height="20" rx="3" stroke="#6b7280" stroke-width="2"/>
+            <path d="M11 18h2" stroke="#6b7280" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <input
+            type="text"
+            id="imeiInput"
+            maxlength="19"
+            placeholder="Enter 15 digit IMEI number (e.g. 353010111111110)"
+            autocomplete="off"
+          />
+        </div>
+        <button id="checkBtn" class="check-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+            <path d="M16 16l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Check Device
+        </button>
+      </div>
+
+      <div class="hero-hint">
+        <span class="hint-icon">ℹ️</span>
+        <span>The IMEI number can be found on your device (dial <b>*#06#</b>) or on the original box.</span>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-illustration">
+        <svg viewBox="0 0 300 400" fill="none">
+          <path d="M150 30 Q180 60 190 100 Q210 140 200 180 Q220 220 210 260 Q190 310 150 360 Q110 310 90 260 Q80 220 100 180 Q90 140 110 100 Q120 60 150 30 Z"
+                fill="#1e40af" opacity="0.08" stroke="#1e40af" stroke-width="2"/>
+          <rect x="115" y="130" width="70" height="140" rx="12" fill="#fff" stroke="#1e40af" stroke-width="3"/>
+          <rect x="122" y="140" width="56" height="115" rx="4" fill="url(#screenGrad)"/>
+          <circle cx="150" cy="262" r="4" fill="#1e40af"/>
+          <path d="M195 145 L215 152 L215 175 Q215 195 205 205 Q200 208 195 210 Q190 208 185 205 Q175 195 175 175 L175 152 Z"
+                fill="#059669" opacity="0.9"/>
+          <path d="M186 178 L193 185 L205 170" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <defs>
+            <linearGradient id="screenGrad" x1="122" y1="140" x2="178" y2="255">
+              <stop stop-color="#1e40af" stop-opacity="0.1"/>
+              <stop offset="1" stop-color="#059669" stop-opacity="0.05"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="hero-caption">
+          <b>Together for a</b>
+          <span>Safer Digital India</span>
+          <div class="tricolor-bar">
+            <span class="orange"></span>
+            <span class="white"></span>
+            <span class="green"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAIN CONTENT ============ -->
+<main class="portal-main">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">
+        <span>📱</span> Device Information
+      </div>
+      <a href="#overview" class="sidebar-item active" data-section="overview">Device Overview</a>
+      <a href="#hardware" class="sidebar-item" data-section="hardware">Hardware Details</a>
+      <a href="#display" class="sidebar-item" data-section="display">Display Information</a>
+      <a href="#network" class="sidebar-item" data-section="network">Network Information</a>
+      <a href="#battery" class="sidebar-item" data-section="battery">Battery Information</a>
+      <a href="#camera" class="sidebar-item" data-section="camera">Camera Details</a>
+      <a href="#fullspecs" class="sidebar-item" data-section="fullspecs">Full Specifications</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">
+        <span>🚀</span> Future Features
+        <span class="soon-badge">Coming Soon</span>
+      </div>
+      <div class="sidebar-item disabled">📍 Live Location Tracking</div>
+      <div class="sidebar-item disabled">🔔 Ring / Sound Device</div>
+      <div class="sidebar-item disabled">🔒 Remote Device Lock</div>
+      <div class="sidebar-item disabled">⚠️ Lost / Stolen Status</div>
+      <div class="sidebar-item disabled">👮 Police / Government Assistance</div>
+    </div>
+
+    <div class="security-note">
+      <div class="security-icon">🛡️</div>
+      <div>
+        <b>Your data is secure</b>
+        <p>and used only for legitimate verification purposes.</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Content -->
+  <section class="content-area">
+
+    <!-- Empty state -->
+    <div id="emptyState" class="empty-state">
+      <div class="empty-icon">🔍</div>
+      <h2>Enter an IMEI to get started</h2>
+      <p>Type any 15-digit IMEI above and click "Check Device" to see detailed information.</p>
+      <button id="sampleBtn" class="btn-outline">Try Sample IMEI</button>
+    </div>
+
+    <!-- Loading state -->
+    <div id="loadingState" class="loading-state hidden">
+      <div class="spinner-lg"></div>
+      <p>Fetching device information…</p>
+    </div>
+
+    <!-- Result -->
+    <div id="resultArea" class="result-area hidden">
+
+      <!-- Success banner -->
+      <div class="success-banner">
+        <div class="success-left">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" fill="#059669"/>
+              <path d="M7 12l3 3 7-7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="successTitle">IMEI Found Successfully</h3>
+            <p>Here is the information for your device. <span class="sample-tag">(Sample data)</span></p>
+          </div>
+        </div>
+        <div class="success-right">
+          <div class="imei-display">IMEI: <b id="bannerIMEI">—</b></div>
+          <span id="validTag" class="valid-tag">✓ Valid IMEI</span>
+        </div>
+      </div>
+
+      <!-- Overview -->
+      <div id="overview" class="info-card">
+        <div class="card-header">
+          <span class="card-icon">📱</span>
+          <h3>Device Overview</h3>
+        </div>
+
+        <div class="overview-grid">
+          <!-- Device Image (NEW) -->
+          <div class="device-image">
+            <div class="device-image-wrapper" id="deviceImageWrapper">
+              <img id="deviceImage" src="" alt="Device" style="display:none;" />
+              <span class="fallback-initial" id="fallbackInitial">?</span>
+            </div>
+            <div class="img-note">* Image for representation only</div>
+          </div>
+
+          <div class="overview-details">
+            <div class="detail-row"><span>Brand</span><b id="dBrand">—</b></div>
+            <div class="detail-row"><span>Model</span><b id="dModel">—</b></div>
+            <div class="detail-row"><span>IMEI</span><b id="dIMEI">—</b></div>
+            <div class="detail-row"><span>Code Name</span><b id="dCode">—</b></div>
+            <div class="detail-row"><span>Release Year</span><b id="dYear">—</b></div>
+            <div class="detail-row"><span>Operating System</span><b id="dOS">—</b></div>
+            <div class="detail-row"><span>Chipset</span><b id="dChipset">—</b></div>
+            <div class="detail-row"><span>GPU</span><b id="dGPU">—</b></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specs grid -->
+      <div class="specs-grid">
+        <!-- Dimensions -->
+        <div id="hardware" class="spec-card">
+          <div class="card-header">
+            <span class="card-icon">📐</span>
+            <h3>Dimensions</h3>
+          </div>
+          <div class="spec-list">
+            <div><span>Height</span><b id="sHeight">—</b></div>
+            <div><span>Width</span><b id="sWidth">—</b></div>
+            <div><span>Thickness</span><b id="sThickness">—</b></div>
+            <div><span>Weight</span><b id="sWeight">—</b></div>
+          </div>
+        </div>
+
+        <!-- Display -->
+        <div id="display" class="spec-card">
+          <div class="card-header">
+            <span class="card-icon">🖥️</span>
+            <h3>Display</h3>
+          </div>
+          <div class="spec-list">
+            <div><span>Type</span><b id="sDispType">—</b></div>
+            <div><span>Resolution</span><b id="sDispRes">—</b></div>
+            <div><span>Size</span><b id="sDispSize">—</b></div>
+          </div>
+        </div>
+
+        <!-- Network -->
+        <div id="network" class="spec-card">
+          <div class="card-header">
+            <span class="card-icon">📡</span>
+            <h3>Network</h3>
+          </div>
+          <div class="spec-list network-list">
+            <div><span>5G Support</span><b class="net-yes" id="s5G">—</b></div>
+            <div><span>4G Support</span><b class="net-yes" id="s4G">—</b></div>
+            <div><span>3G Support</span><b class="net-yes" id="s3G">—</b></div>
+            <div><span>2G Support</span><b class="net-yes" id="s2G">—</b></div>
+          </div>
+        </div>
+
+        <!-- Battery -->
+        <div id="battery" class="spec-card">
+          <div class="card-header">
+            <span class="card-icon">🔋</span>
+            <h3>Battery</h3>
+          </div>
+          <div class="spec-list">
+            <div><span>Type</span><b id="sBatType">—</b></div>
+            <div><span>Capacity</span><b id="sBatCap">—</b></div>
+          </div>
+        </div>
+
+        <!-- Camera -->
+        <div id="camera" class="spec-card">
+          <div class="card-header">
+            <span class="card-icon">📷</span>
+            <h3>Camera</h3>
+          </div>
+          <div class="spec-list">
+            <div><span>Main</span><b id="sCamMain">—</b></div>
+            <div><span>Selfie</span><b id="sCamSelfie">—</b></div>
+          </div>
+        </div>
+
+        <!-- Full Specs -->
+        <div id="fullspecs" class="spec-card full-specs">
+          <div class="card-header">
+            <span class="card-icon">📋</span>
+            <h3>Full Specifications</h3>
+          </div>
+          <button class="btn-view-full" id="viewFullBtn">View Full Specs</button>
+        </div>
+      </div>
+
+      <!-- Coming soon features -->
+      <div class="coming-soon-section">
+        <div class="card-header">
+          <span class="card-icon">🚀</span>
+          <h3>More Services <span class="soon-badge">Coming Soon</span></h3>
+        </div>
+        <div class="coming-grid">
+          <div class="coming-card">
+            <div class="coming-icon">📍</div>
+            <div class="coming-title">Live Location Tracking</div>
+            <div class="coming-status">Coming Soon</div>
+          </div>
+          <div class="coming-card">
+            <div class="coming-icon">🔔</div>
+            <div class="coming-title">Ring / Sound Device</div>
+            <div class="coming-status">Coming Soon</div>
+          </div>
+          <div class="coming-card">
+            <div class="coming-icon">🔒</div>
+            <div class="coming-title">Remote Device Lock</div>
+            <div class="coming-status">Coming Soon</div>
+          </div>
+          <div class="coming-card">
+            <div class="coming-icon">⚠️</div>
+            <div class="coming-title">Lost / Stolen Status</div>
+            <div class="coming-status">Coming Soon</div>
+          </div>
+          <div class="coming-card">
+            <div class="coming-icon">👮</div>
+            <div class="coming-title">Police / Government Assistance</div>
+            <div class="coming-status">Coming Soon</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-muku">MUKU</span><span class="brand-exploits">EXPLOITS</span>
+      <p>Lost & Stolen Mobile Assistance Portal</p>
+    </div>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#help">Help & Support</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-motto">
+      <div class="tricolor-mini"><span></span><span></span><span></span></div>
+      <div>Secure Devices <b>|</b> Safer Citizens <b>|</b> Stronger India</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>This is a demo project for educational and awareness purposes. Not an official government website.</span>
+    <span>Last Updated: <b id="lastUpdated">—</b></span>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
